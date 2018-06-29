@@ -25,28 +25,28 @@ public:
 	void					switchName( void );
 	void					switchOSinfo( void );
 	void					switchTime( void );
-	void					switchCPU( void );
-	void					switchRAM( void );
-	void					switchNetwork( void );
+	// void					switchCPU( void );
+	// void					switchRAM( void );
+	// void					switchNetwork( void );
 	void					switchCols( int );
 
 private:
-	module		*NameInfo;
-	module		*OSInfo;
-	module		*TimeInfo;
-	module		*CPUInfo;
-	module		*RAMInfo;
-	module		*NetworkInfo;
+	ACursesModule		*NameInfo;
+	ACursesModule		*OSInfo;
+	ACursesModule		*TimeInfo;
+	// ACursesModule		*CPUInfo;
+	// ACursesModule		*RAMInfo;
+	// ACursesModule		*NetworkInfo;
 
 	bool		isName;
 	bool		isOSinfo;
 	bool		isTime;
-	bool		isCPU;
-	bool		isRAM;
-	bool		isNetwork;
+	// bool		isCPU;
+	// bool		isRAM;
+	// bool		isNetwork;
 
-	std::vector<module*>	_modules;
-	int						_nbColums;
+	std::vector<IMonitorModule*>		_modules;
+	int									_nbColums;
 
 	void					allocAll( void );
 	void					deleteAll( void );

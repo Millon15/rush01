@@ -4,7 +4,7 @@ RAM::RAM( void )
 {
 	return ;
 }
-RAM::RAM( std::string a, int b ) : module(a, b)
+RAM::RAM( std::string a, int b ) : ACursesModule(a, b)
 {
 	return ;
 }
@@ -19,7 +19,7 @@ RAM::~RAM( void )
 
 RAM			&RAM::operator=( const RAM &toCopy )
 {
-	module::operator=(toCopy);
+	ACursesModule::operator=(toCopy);
 	static_cast<void>(toCopy);
 
 	return *this;

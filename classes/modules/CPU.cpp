@@ -4,7 +4,7 @@ CPU::CPU( void )
 {
 	return ;
 }
-CPU::CPU( std::string a, int b ) : module(a, b)
+CPU::CPU( std::string a, int b ) : ACursesModule(a, b)
 {
 	return ;
 }
@@ -19,7 +19,7 @@ CPU::~CPU( void )
 
 CPU			&CPU::operator=( const CPU &toCopy )
 {
-	module::operator=(toCopy);
+	ACursesModule::operator=(toCopy);
 	static_cast<void>(toCopy);
 
 	return *this;

@@ -1,9 +1,9 @@
 #ifndef OS_HPP
 #define OS_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
 
-class OS : public module {
+class OS : public ACursesModule {
 
 public:
 	OS( void );
@@ -12,6 +12,8 @@ public:
 	~OS( void );
 
 	OS			&operator=( const OS & );
+
+	void		putInfo( void ) const;
 
 private:
 

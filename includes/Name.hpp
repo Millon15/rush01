@@ -1,9 +1,10 @@
 #ifndef NAME_HPP
 #define NAME_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
+#include <unistd.h>
 
-class Name : public module {
+class Name : public ACursesModule {
 
 public:
 	Name( void );
@@ -12,6 +13,8 @@ public:
 	~Name( void );
 
 	Name			&operator=( const Name & );
+
+	virtual void			putInfo( void ) const;
 
 private:
 

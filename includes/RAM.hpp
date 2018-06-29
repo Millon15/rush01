@@ -1,9 +1,9 @@
 #ifndef RAM_HPP
 #define RAM_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
 
-class RAM : public module {
+class RAM : public ACursesModule {
 
 public:
 	RAM( void );

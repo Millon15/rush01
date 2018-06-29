@@ -4,7 +4,7 @@ Network::Network( void )
 {
 	return ;
 }
-Network::Network( std::string a, int b ) : module(a, b)
+Network::Network( std::string a, int b ) : ACursesModule(a, b)
 {
 	return ;
 }
@@ -19,7 +19,7 @@ Network::~Network( void )
 
 Network			&Network::operator=( const Network &toCopy )
 {
-	module::operator=(toCopy);
+	ACursesModule::operator=(toCopy);
 	static_cast<void>(toCopy);
 
 	return *this;

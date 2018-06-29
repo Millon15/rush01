@@ -1,9 +1,9 @@
 #ifndef TIME_HPP
 #define TIME_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
 
-class Time : public module {
+class Time : public ACursesModule {
 
 public:
 	Time( void );
@@ -12,6 +12,8 @@ public:
 	~Time( void );
 
 	Time			&operator=( const Time & );
+
+	void			putInfo( void ) const;
 
 private:
 

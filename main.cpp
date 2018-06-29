@@ -35,9 +35,9 @@ int				main( void )
 		if ( c == KEY_ONE ) d.switchName();
 		else if ( c == KEY_TWO ) d.switchOSinfo();
 		else if ( c == KEY_THREE ) d.switchTime();
-		else if ( c == KEY_FOUR ) d.switchCPU();
-		else if ( c == KEY_FIVE ) d.switchRAM();
-		else if ( c == KEY_SIX ) d.switchNetwork();
+		// else if ( c == KEY_FOUR ) d.switchCPU();
+		// else if ( c == KEY_FIVE ) d.switchRAM();
+		// else if ( c == KEY_SIX ) d.switchNetwork();
 		else if ( c == COL_ONE ) d.switchCols(1);
 		else if ( c == COL_TWO ) d.switchCols(2);
 		else if ( c == COL_THREE ) d.switchCols(3);

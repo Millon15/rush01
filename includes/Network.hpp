@@ -1,9 +1,9 @@
 #ifndef NETWORK_HPP
 #define NETWORK_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
 
-class Network : public module {
+class Network : public ACursesModule {
 
 public:
 	Network( void );

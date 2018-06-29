@@ -1,9 +1,9 @@
 #ifndef CPU_HPP
 #define CPU_HPP
 
-#include <module.hpp>
+#include <ACursesModule.hpp>
 
-class CPU : public module {
+class CPU : public ACursesModule {
 
 public:
 	CPU( void );

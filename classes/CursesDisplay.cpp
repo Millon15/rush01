@@ -8,9 +8,9 @@ CursesDisplay::CursesDisplay( void ) :
 	isName(true),
 	isOSinfo(true),
 	isTime(true),
-	isCPU(true),
-	isRAM(true),
-	isNetwork(true),
+	// isCPU(true),
+	// isRAM(true),
+	// isNetwork(true),
 	_modules(0),
 	_nbColums(2)
 {
@@ -74,20 +74,20 @@ void						CursesDisplay::allocAll( void )
 		_modules.push_back(TimeInfo);
 	}
 
-	if ( isCPU ) {
-		CPUInfo = new CPU("4. CPU info", _nbColums);
-		_modules.push_back(CPUInfo);
-	}
+	// if ( isCPU ) {
+	// 	CPUInfo = new CPU("4. CPU info", _nbColums);
+	// 	_modules.push_back(CPUInfo);
+	// }
 
-	if ( isRAM ) {
-		RAMInfo = new RAM("5. RAM info", _nbColums);
-		_modules.push_back(RAMInfo);
-	}
+	// if ( isRAM ) {
+	// 	RAMInfo = new RAM("5. RAM info", _nbColums);
+	// 	_modules.push_back(RAMInfo);
+	// }
 
-	if ( isNetwork ) {
-		NetworkInfo = new Network("6. Network info", _nbColums);
-		_modules.push_back(NetworkInfo);
-	}
+	// if ( isNetwork ) {
+	// 	NetworkInfo = new Network("6. Network info", _nbColums);
+	// 	_modules.push_back(NetworkInfo);
+	// }
 }
 void						CursesDisplay::reAllocAll( void )
 {
@@ -105,11 +105,11 @@ void						CursesDisplay::refresh( void )
 			i < _modules.size();
 			i++ )
 	{
-		_modules[i]->refresh();
+		_modules[i]->putInfo();
 	}
 }
 
-																/* Module switchers */
+																	/* Module switchers */
 void						CursesDisplay::switchName( void )
 {
 	isName = !isName;
@@ -125,21 +125,21 @@ void						CursesDisplay::switchTime( void )
 	isTime = !isTime;
 	this->reAllocAll();
 }
-void						CursesDisplay::switchCPU( void )
-{
-	isCPU = !isCPU;
-	this->reAllocAll();
-}
-void						CursesDisplay::switchRAM( void )
-{
-	isRAM = !isRAM;
-	this->reAllocAll();
-}
-void						CursesDisplay::switchNetwork( void )
-{
-	isNetwork = !isNetwork;
-	this->reAllocAll();
-}
+// void						CursesDisplay::switchCPU( void )
+// {
+// 	isCPU = !isCPU;
+// 	this->reAllocAll();
+// }
+// void						CursesDisplay::switchRAM( void )
+// {
+// 	isRAM = !isRAM;
+// 	this->reAllocAll();
+// }
+// void						CursesDisplay::switchNetwork( void )
+// {
+// 	isNetwork = !isNetwork;
+// 	this->reAllocAll();
+// }
 void						CursesDisplay::switchCols( int nbColums )
 {
 	_nbColums = nbColums;
