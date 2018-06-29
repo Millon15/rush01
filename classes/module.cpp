@@ -2,15 +2,13 @@
 
 module::module( void ) :
 	_motto(""),
-	_y(0),
-	_x(0)
+	_nbColums(2)
 {
 	init();
 }
-module::module( std::string str ) :
+module::module( std::string str, int nbColums ) :
 	_motto(str),
-	_y(0),
-	_x(0)
+	_nbColums(nbColums)
 {
 	init();
 }
@@ -20,6 +18,7 @@ module::module( const module &toCopy )
 }
 module::~module( void )
 {
+	decInitYX();
 	wborder(_w, ' ', ' ', ' ',' ',' ',' ',' ',' ');
 	wrefresh(_w);
 	delwin(_w);
@@ -41,25 +40,21 @@ void			module::init( void )
 	_initial_x = &initial_x;
 	_w = newwin(__size_y, __size_x, initial_y, initial_x);
 	initial_x += __size_x;
-	if ( initial_x == (__size_x * NB_MODULES_IN_LINE) ) {
+	if ( initial_x == (__size_x * _nbColums) ) {
 		initial_y += __size_y;
 		initial_x = 0;
 	}
 }
-
 void			module::refresh( void )
 {
 	mvwprintw(this->_w, 1, (__size_x  - _motto.length()) / 2, "%s", _motto.c_str());
 	box(_w, 0, 0);
 	wrefresh(_w);
 }
-
-void			module::decInitXY( void )
+void			module::decInitYX( void )
 {
-	if ( *_initial_y != 0 && *_initial_x != 0 ) {
-		*_initial_y -= __size_y;
-		*_initial_x -= __size_x;
-	}
+	*_initial_y = 0;
+	*_initial_x = 0;
 }
 
 
@@ -67,20 +62,4 @@ void			module::decInitXY( void )
 WINDOW			*module::getWin( void )
 {
 	return this->_w;
-}
-int				module::getY( void )
-{
-	return this->_y;
-}
-int				module::getX( void )
-{
-	return this->_x;
-}
-int				module::getIY( void )
-{
-	return *this->_initial_y;
-}
-int				module::getIX( void )
-{
-	return *this->_initial_x;
 }

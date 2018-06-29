@@ -1,10 +1,6 @@
 #ifndef CURSESDISPLAY_HPP
 #define CURSESDISPLAY_HPP
 
-#define EXIT_KEY1 27
-#define EXIT_KEY2 113
-#define EXIT_KEY3 81
-
 #include <module.hpp>
 #include <vector>
 
@@ -18,7 +14,16 @@ public:
 	CursesDisplay			&operator=( const CursesDisplay & );
 
 	void					refresh( void );
-	void					hello( void );
+	void					init( void );
+
+	/* Module switchers */
+	void					switchNames( void );
+	void					switchOSinfo( void );
+	void					switchTime( void );
+	void					switchCPU( void );
+	void					switchRAM( void );
+	void					switchNetwork( void );
+	void					switchCols( int );
 
 private:
 	module		*Names;
@@ -28,7 +33,19 @@ private:
 	module		*RAM;
 	module		*Network;
 
+	bool		isNames;
+	bool		isOSinfo;
+	bool		isTime;
+	bool		isCPU;
+	bool		isRAM;
+	bool		isNetwork;
+
 	std::vector<module*>	_modules;
+	int						_nbColums;
+
+	void					allocAll( void );
+	void					deleteAll( void );
+	void					reAllocAll( void );
 
 };
 
