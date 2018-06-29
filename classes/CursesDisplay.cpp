@@ -5,7 +5,7 @@
 // o << _modules[i] << std::endl;
 
 CursesDisplay::CursesDisplay( void ) : 
-	isNames(true),
+	isName(true),
 	isOSinfo(true),
 	isTime(true),
 	isCPU(true),
@@ -59,34 +59,34 @@ void						CursesDisplay::deleteAll( void )
 }
 void						CursesDisplay::allocAll( void )
 {
-	if ( isNames ) {
-		Names = new module("1. User info", _nbColums);
-		_modules.push_back(Names);
+	if ( isName ) {
+		NameInfo = new Name("1. User info", _nbColums);
+		_modules.push_back(NameInfo);
 	}
 
 	if ( isOSinfo ) {
-		OSinfo = new module("2. OS info", _nbColums);
-		_modules.push_back(OSinfo);
+		OSInfo = new OS("2. OS info", _nbColums);
+		_modules.push_back(OSInfo);
 	}
 
 	if ( isTime ) {
-		Time = new module("3. Time", _nbColums);
-		_modules.push_back(Time);
+		TimeInfo = new Time("3. Time", _nbColums);
+		_modules.push_back(TimeInfo);
 	}
 
 	if ( isCPU ) {
-		CPU = new module("4. CPU info", _nbColums);
-		_modules.push_back(CPU);
+		CPUInfo = new CPU("4. CPU info", _nbColums);
+		_modules.push_back(CPUInfo);
 	}
 
 	if ( isRAM ) {
-		RAM = new module("5. RAM info", _nbColums);
-		_modules.push_back(RAM);
+		RAMInfo = new RAM("5. RAM info", _nbColums);
+		_modules.push_back(RAMInfo);
 	}
 
 	if ( isNetwork ) {
-		Network = new module("6. Network info", _nbColums);
-		_modules.push_back(Network);
+		NetworkInfo = new Network("6. Network info", _nbColums);
+		_modules.push_back(NetworkInfo);
 	}
 }
 void						CursesDisplay::reAllocAll( void )
@@ -109,10 +109,10 @@ void						CursesDisplay::refresh( void )
 	}
 }
 
-															/* Module switchers */
-void						CursesDisplay::switchNames( void )
+																/* Module switchers */
+void						CursesDisplay::switchName( void )
 {
-	isNames = !isNames;
+	isName = !isName;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchOSinfo( void )

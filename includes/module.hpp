@@ -1,25 +1,25 @@
 #ifndef MODULE_HPP
 #define MODULE_HPP
 
-#include <ncurses.h>
-#include <cstdlib>
-#include <string>
-#include <iostream>
+#include <IMonitorModule.hpp>
 
-class module {
+class module : public IMonitorModule {
 
 public:
 	module( void );
 	module( std::string, int );
 	module( const module & );
-	~module( void );
+	virtual ~module( void );
 
 	module			&operator=( const module & );
 
-	void			refresh( void );
+	virtual void			refresh( void );
 
 	/* GETTERS */
 	WINDOW			*getWin( void );
+
+protected:
+	virtual void				init( void );
 
 private:
 	WINDOW				*_w;
@@ -30,7 +30,6 @@ private:
 	static const int	__size_y = 20;
 	static const int	__size_x = 30;
 
-	void				init( void );
 	void				decInitYX( void );
 
 };

@@ -1,7 +1,12 @@
 #ifndef CURSESDISPLAY_HPP
 #define CURSESDISPLAY_HPP
 
-#include <module.hpp>
+#include <Name.hpp>
+#include <OS.hpp>
+#include <Time.hpp>
+#include <CPU.hpp>
+#include <RAM.hpp>
+#include <Network.hpp>
 #include <vector>
 
 class CursesDisplay {
@@ -17,7 +22,7 @@ public:
 	void					init( void );
 
 	/* Module switchers */
-	void					switchNames( void );
+	void					switchName( void );
 	void					switchOSinfo( void );
 	void					switchTime( void );
 	void					switchCPU( void );
@@ -26,14 +31,14 @@ public:
 	void					switchCols( int );
 
 private:
-	module		*Names;
-	module		*OSinfo;
-	module		*Time;
-	module		*CPU;
-	module		*RAM;
-	module		*Network;
+	module		*NameInfo;
+	module		*OSInfo;
+	module		*TimeInfo;
+	module		*CPUInfo;
+	module		*RAMInfo;
+	module		*NetworkInfo;
 
-	bool		isNames;
+	bool		isName;
 	bool		isOSinfo;
 	bool		isTime;
 	bool		isCPU;

@@ -1,21 +1,21 @@
 
 #include <CursesDisplay.hpp>
 
-#define EXIT_KEY1	27
-#define EXIT_KEY2	113
-#define EXIT_KEY3	81
+#define EXIT_KEY1	27		// escape button
+#define EXIT_KEY2	'q'
+#define EXIT_KEY3	'Q'
 
-#define KEY_ONE		49
-#define KEY_TWO		50
-#define KEY_THREE	51
-#define KEY_FOUR	52
-#define KEY_FIVE	53
-#define KEY_SIX		54
+#define KEY_ONE		'1'
+#define KEY_TWO		'2'
+#define KEY_THREE	'3'
+#define KEY_FOUR	'4'
+#define KEY_FIVE	'5'
+#define KEY_SIX		'6'
 
-#define COL_ONE		33
-#define COL_TWO		64
-#define COL_THREE	35
-#define COL_FOUR	36
+#define COL_ONE		'!'
+#define COL_TWO		'@'
+#define COL_THREE	'#'
+#define COL_FOUR	'$'
 
 int				main( void )
 {
@@ -32,7 +32,7 @@ int				main( void )
 	while (true)
 	{
 		c = getch();
-		if ( c == KEY_ONE ) d.switchNames();
+		if ( c == KEY_ONE ) d.switchName();
 		else if ( c == KEY_TWO ) d.switchOSinfo();
 		else if ( c == KEY_THREE ) d.switchTime();
 		else if ( c == KEY_FOUR ) d.switchCPU();

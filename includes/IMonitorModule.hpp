@@ -1,19 +1,21 @@
 #ifndef IMONITORMODULE_HPP
 #define IMONITORMODULE_HPP
 
+#include <ncurses.h>
+#include <cstdlib>
+#include <string>
+#include <iostream>
+
 class IMonitorModule {
 
 public:
-	IMonitorModule( void );
-	IMonitorModule( const IMonitorModule & );
-	virtual ~IMonitorModule( void ) = 0;
+	virtual ~IMonitorModule( void ) { return ; };
 
-	virtual IMonitorModule			&operator=( const IMonitorModule & ) = 0;
+	virtual void			refresh( void ) = 0;
 
+protected:
 	
-
-private:
-
+	virtual void				init( void ) = 0;
 
 };
 
