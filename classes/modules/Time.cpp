@@ -28,9 +28,9 @@ Time			&Time::operator=( const Time &toCopy )
 
 void			Time::putInfo( void ) const
 {
-	const std::string	t = this->exec("date '+%d/%m/%Y %H:%M:%S'");
+	const std::string	t = saveExec("date '+%d/%m/%Y %H:%M:%S'");
 
-	mvwprintw(this->_w, _winStStr + 2, (__size_x - t.length()) / 2, "%s", t.c_str());
+	mvwprintw(this->_w, _winStStr + 2,alignCenter(t), "%s", t.c_str());
 
 	this->refresh();
 }

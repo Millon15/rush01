@@ -6,7 +6,7 @@
 #    By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/28 19:24:02 by vbrazas           #+#    #+#              #
-#    Updated: 2018/06/29 17:18:56 by vbrazas          ###   ########.fr        #
+#    Updated: 2018/06/29 19:32:44 by vbrazas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ IFLAGS = -I $(INC_PATH)
 LFLAGS = -lncurses
 
 CLASSES = CursesDisplay
-MODULES = ACursesModule Name OS Time# CPU RAM Network
-FILES = main
+MODULES = ACursesModule Name OS Time CPU RAM# Network
+FILES = main exec
 
 SRCS = $(addprefix $(SRC_PATH), $(addsuffix .cpp, $(CLASSES)))
 SRCS += $(addprefix $(SRC_PATH)$(MODULES_PATH), $(addsuffix .cpp, $(MODULES)))

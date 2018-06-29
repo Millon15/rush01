@@ -8,6 +8,7 @@
 #include <RAM.hpp>
 #include <Network.hpp>
 #include <vector>
+#include <main.hpp>
 
 class CursesDisplay {
 
@@ -25,8 +26,8 @@ public:
 	void					switchName( void );
 	void					switchOSinfo( void );
 	void					switchTime( void );
-	// void					switchCPU( void );
-	// void					switchRAM( void );
+	void					switchCPU( void );
+	void					switchRAM( void );
 	// void					switchNetwork( void );
 	void					switchCols( int );
 
@@ -34,15 +35,15 @@ private:
 	ACursesModule		*NameInfo;
 	ACursesModule		*OSInfo;
 	ACursesModule		*TimeInfo;
-	// ACursesModule		*CPUInfo;
-	// ACursesModule		*RAMInfo;
+	ACursesModule		*CPUInfo;
+	ACursesModule		*RAMInfo;
 	// ACursesModule		*NetworkInfo;
 
 	bool		isName;
 	bool		isOSinfo;
 	bool		isTime;
-	// bool		isCPU;
-	// bool		isRAM;
+	bool		isCPU;
+	bool		isRAM;
 	// bool		isNetwork;
 
 	std::vector<IMonitorModule*>		_modules;

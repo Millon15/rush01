@@ -8,8 +8,8 @@ CursesDisplay::CursesDisplay( void ) :
 	isName(true),
 	isOSinfo(true),
 	isTime(true),
-	// isCPU(true),
-	// isRAM(true),
+	isCPU(true),
+	isRAM(true),
 	// isNetwork(true),
 	_modules(0),
 	_nbColums(2)
@@ -74,15 +74,15 @@ void						CursesDisplay::allocAll( void )
 		_modules.push_back(TimeInfo);
 	}
 
-	// if ( isCPU ) {
-	// 	CPUInfo = new CPU("4. CPU info", _nbColums);
-	// 	_modules.push_back(CPUInfo);
-	// }
+	if ( isCPU ) {
+		CPUInfo = new CPU("4. CPU info", _nbColums);
+		_modules.push_back(CPUInfo);
+	}
 
-	// if ( isRAM ) {
-	// 	RAMInfo = new RAM("5. RAM info", _nbColums);
-	// 	_modules.push_back(RAMInfo);
-	// }
+	if ( isRAM ) {
+		RAMInfo = new RAM("5. RAM info", _nbColums);
+		_modules.push_back(RAMInfo);
+	}
 
 	// if ( isNetwork ) {
 	// 	NetworkInfo = new Network("6. Network info", _nbColums);
@@ -125,16 +125,16 @@ void						CursesDisplay::switchTime( void )
 	isTime = !isTime;
 	this->reAllocAll();
 }
-// void						CursesDisplay::switchCPU( void )
-// {
-// 	isCPU = !isCPU;
-// 	this->reAllocAll();
-// }
-// void						CursesDisplay::switchRAM( void )
-// {
-// 	isRAM = !isRAM;
-// 	this->reAllocAll();
-// }
+void						CursesDisplay::switchCPU( void )
+{
+	isCPU = !isCPU;
+	this->reAllocAll();
+}
+void						CursesDisplay::switchRAM( void )
+{
+	isRAM = !isRAM;
+	this->reAllocAll();
+}
 // void						CursesDisplay::switchNetwork( void )
 // {
 // 	isNetwork = !isNetwork;

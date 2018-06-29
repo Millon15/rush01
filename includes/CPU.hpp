@@ -13,6 +13,8 @@ public:
 
 	CPU			&operator=( const CPU & );
 
+	void		putInfo( void ) const;
+
 private:
 
 

@@ -6,7 +6,7 @@ ACursesModule::ACursesModule( void ) :
 {
 	init();
 }
-ACursesModule::ACursesModule( std::string str, int nbColums ) :
+ACursesModule::ACursesModule( std::string &str, int nbColums ) :
 	_motto(str),
 	_nbColums(nbColums)
 {
@@ -45,40 +45,31 @@ void			ACursesModule::init( void )
 		initial_x = 0;
 	}
 }
+
 void			ACursesModule::putInfo( void ) const
 {
 	return ;
 }
+
+
 void			ACursesModule::refresh( void ) const
 {
 	mvwprintw(this->_w, 1, (__size_x  - _motto.length()) / 2, "%s", _motto.c_str());
 	box(_w, 0, 0);
 	wrefresh(_w);
 }
+int				ACursesModule::alignCenter( const std::string &str ) const
+{
+	return (__size_x - str.length()) / 2;
+}
+int				ACursesModule::alignCenter( const int slen ) const
+{
+	return (__size_x - slen) / 2;
+}
 void			ACursesModule::decInitYX( void )
 {
 	*_initial_y = 0;
 	*_initial_x = 0;
-}
-std::string		ACursesModule::exec( const char *cmd ) const
-{
-	char			buffer[128];
-	std::string		result = "";
-	FILE*			pipe = popen(cmd, "r");
-
-	if ( !pipe ) throw std::runtime_error("popen() failed!");
-	try {
-		while (!feof(pipe)) {
-			if (fgets(buffer, 128, pipe) != NULL)
-				result += buffer;
-		}
-	}
-	catch (...) {
-		pclose(pipe);
-		throw;
-	}
-	pclose(pipe);
-	return result;
 }
 
 														/* GETTERS */

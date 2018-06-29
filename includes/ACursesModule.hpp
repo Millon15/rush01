@@ -1,19 +1,15 @@
 #ifndef ACURSESMODULE_HPP
 #define ACURSESMODULE_HPP
 
+
 #include <IMonitorModule.hpp>
-#include <ncurses.h>
-#include <cstdlib>
-#include <string>
-#include <iostream>
-#include <stdexcept>
-#include <stdio.h>
+#include <main.hpp>
 
 class ACursesModule : public IMonitorModule {
 
 public:
 	ACursesModule( void );
-	ACursesModule( std::string, int );
+	ACursesModule( std::string &, int );
 	ACursesModule( const ACursesModule & );
 	virtual ~ACursesModule( void );
 
@@ -36,8 +32,9 @@ protected:
 	static const int	__size_x = 30;
 
 	void				decInitYX( void );
+	int					alignCenter( const std::string & ) const;
+	int					alignCenter( const int ) const;
 	virtual void		init( void );
-	std::string			exec( const char *cmd ) const;
 
 };
 

@@ -13,6 +13,8 @@ public:
 
 	RAM			&operator=( const RAM & );
 
+	void		putInfo( void ) const;
+
 private:
 
 

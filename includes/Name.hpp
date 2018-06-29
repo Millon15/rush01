@@ -2,7 +2,6 @@
 #define NAME_HPP
 
 #include <ACursesModule.hpp>
-#include <unistd.h>
 
 class Name : public ACursesModule {
 
