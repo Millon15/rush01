@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NetworkInfo.hpp                                    :+:      :+:    :+:   */
+/*   NetworkThro.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/30 12:09:07 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 15:06:19 by vbrazas          ###   ########.fr       */
+/*   Created: 2018/06/30 15:06:41 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 15:42:42 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NETWORKINFO_HPP
-#define NETWORKINFO_HPP
+#ifndef NETWORKTHRO_HPP
+#define NETWORKTHRO_HPP
 
 #include <ACursesModule.hpp>
 
-class NetworkInfo : public ACursesModule {
+class NetworkThro : public ACursesModule {
 
 public:
-	NetworkInfo( void );
-	NetworkInfo( std::string, int );
-	NetworkInfo( const NetworkInfo & );
-	~NetworkInfo( void );
+	NetworkThro( void );
+	NetworkThro( std::string, int );
+	NetworkThro( const NetworkThro & );
+	~NetworkThro( void );
 
-	NetworkInfo			&operator=( const NetworkInfo & );
+	NetworkThro			&operator=( const NetworkThro & );
 
-	void				putInfo( void ) const;
+	virtual void			putInfo( void ) const;
 
 private:
 
 
 };
 
-#endif												// end of NETWORKINFO_HPP
+#endif												// end of NETWORKTHRO_HPP

@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:10 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 12:31:24 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 17:06:53 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void			ACursesModule::init( void )
 		initial_x = 0;
 	}
 }
-
 void			ACursesModule::putInfo( void ) const
 {
 	return ;
@@ -83,6 +82,21 @@ void			ACursesModule::decInitYX( void )
 	*_initial_y = 0;
 	*_initial_x = 0;
 }
+void			ACursesModule::clearLine( int line, int borderThick ) const
+{
+	std::string		spaces( __size_x - (borderThick * 2), ' ' );
+
+	mvwprintw(this->_w, line, borderThick, "%s", spaces.c_str());
+}
+void			ACursesModule::clearWindow( int borderThick ) const
+{
+	const int	bottom = __size_y - borderThick;
+
+	for ( int i = borderThick; i < bottom; i++ ) {
+		this->clearLine(i, borderThick);
+	}
+}
+
 
 
 														/* GETTERS */

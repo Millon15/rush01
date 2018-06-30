@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:12 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 12:31:29 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 16:52:51 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ protected:
 	static const int	__size_y = 20;
 	static const int	__size_x = 30;
 
+	virtual void		init( void );
+
 	void				decInitYX( void );
 	int					alignCenter( const std::string & ) const;
 	int					alignCenter( const int ) const;
-
-	virtual void		init( void );
+	void				clearLine( int, int = 1 ) const;
+	void				clearWindow( int = 1 ) const;
 
 };
 

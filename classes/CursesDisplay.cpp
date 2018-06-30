@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:22 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 13:31:43 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 15:47:56 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ CursesDisplay::CursesDisplay( void ) :
 	isTime(true),
 	isCPU(true),
 	isRAM(true),
-	// isNetworkThro(true),
+	isNetworkThro(true),
 	isNetworkInfo(true),
 	_modules(0),
 	_nbColums(2)
@@ -97,10 +97,10 @@ void						CursesDisplay::allocAll( void )
 		_modules.push_back(RAMInfo);
 	}
 
-	// if ( isNetworkThro ) {
-	// 	NetworkInfo = new NetworkThro("6. Network throughput", _nbColums);
-	// 	_modules.push_back(NetworkInfo);
-	// }
+	if ( isNetworkThro ) {
+		NetworkThr = new NetworkThro("6. Network throughput", _nbColums);
+		_modules.push_back(NetworkThr);
+	}
 	
 	if ( isNetworkInfo ) {
 		NetworkInf = new NetworkInfo("7. Network interfaces", _nbColums);
@@ -161,6 +161,11 @@ void						CursesDisplay::switchCPU( void )
 void						CursesDisplay::switchRAM( void )
 {
 	isRAM = !isRAM;
+	this->reAllocAll();
+}
+void						CursesDisplay::switchNetworkThro( void )
+{
+	isNetworkThro = !isNetworkThro;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchNetworkInfo( void )

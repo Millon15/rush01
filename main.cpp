@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:33 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 12:08:37 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 16:17:45 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				main( void )
 	// }
 
 	CursesDisplay	d;
-	int				inconstant = 0;
+	time_t			t = time(NULL);
 	int				c;
 
 	while (true)
@@ -39,7 +39,7 @@ int				main( void )
 		else if ( c == KEY_THREE )		d.switchTime();
 		else if ( c == KEY_FOUR )		d.switchCPU();
 		else if ( c == KEY_FIVE )		d.switchRAM();
-		// else if ( c == KEY_SIX )		d.switchNetworkThro();
+		else if ( c == KEY_SIX )		d.switchNetworkThro();
 		else if ( c == KEY_SEVEN )		d.switchNetworkInfo();
 		// else if ( c == KEY_EIGHT )		d.switchCat();
 		// else if ( c == KEY_NINE )		d.switchHardware();
@@ -47,14 +47,15 @@ int				main( void )
 		else if ( c == COL_TWO )		d.switchCols(2);
 		else if ( c == COL_THREE )		d.switchCols(3);
 		else if ( c == COL_FOUR )		d.switchCols(4);
+		else if ( c == COL_FIVE )		d.switchCols(5);
+		else if ( c == COL_SIX )		d.switchCols(6);
 		else if ( c == EXIT_KEY1 || c == EXIT_KEY2 || c == EXIT_KEY3 )
 			break ;
 
-		if ( inconstant == 100000 ) {
+		if ( t != time(NULL) ) {
 			d.refresh();
-			inconstant = 0;
+			t = time(NULL);
 		}
-		inconstant++;
 	}
 
 	return 0;

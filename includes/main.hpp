@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:29 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 13:26:16 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 16:17:03 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <stdexcept>
 #include <stdio.h>
 #include <unistd.h>
+#include <time.h>
 
 #define BUFF_SIZE 1024
 
@@ -45,6 +46,8 @@
 #define COL_TWO		'@'
 #define COL_THREE	'#'
 #define COL_FOUR	'$'
+#define COL_FIVE	'%'
+#define COL_SIX		'^'
 
 std::string					exec( const char * );
 std::string					saveExec( const char * );

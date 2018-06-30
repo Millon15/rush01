@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:26 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 12:25:12 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 15:43:19 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <CPU.hpp>
 #include <RAM.hpp>
 #include <NetworkInfo.hpp>
+#include <NetworkThro.hpp>
 #include <main.hpp>
 
 class CursesDisplay {
@@ -39,7 +40,7 @@ public:
 	void					switchTime( void );
 	void					switchCPU( void );
 	void					switchRAM( void );
-	// void					switchNetworkThro( void );
+	void					switchNetworkThro( void );
 	void					switchNetworkInfo( void );
 	// void					switchCat( void );
 	// void					switchHardware( void );
@@ -51,7 +52,7 @@ private:
 	ACursesModule		*TimeInfo;
 	ACursesModule		*CPUInfo;
 	ACursesModule		*RAMInfo;
-	// ACursesModule		*NetworkTr;
+	ACursesModule		*NetworkThr;
 	ACursesModule		*NetworkInf;
 	// ACursesModule		*CatInst;
 	// ACursesModule		*HardW;
@@ -61,7 +62,7 @@ private:
 	bool		isTime;
 	bool		isCPU;
 	bool		isRAM;
-	// bool		isNetworkThro;
+	bool		isNetworkThro;
 	bool		isNetworkInfo;
 	// bool		isCat;
 	// bool		isHardware;
