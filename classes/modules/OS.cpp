@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   OS.cpp                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 19:51:44 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 19:51:44 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <OS.hpp>
 
 OS::OS( void )
@@ -35,16 +47,16 @@ void			OS::putInfo( void ) const
 	std::size_t			spos;
 	std::size_t			epos;
 
-	mvwprintw(this->_w, y, 1, "%s", kernel.substr(0, kernel.find(": ")).c_str());
-	mvwprintw(this->_w, y += 1, 1, "Platform: %s", hardware.c_str());
+	mvwprintw(this->_w, y++, 1, "%s", kernel.substr(0, kernel.find(": ")).c_str());
+	mvwprintw(this->_w, y++, 1, "Platform: %s", hardware.c_str());
 	epos = genInfo.find('\n');
-	mvwprintw(this->_w, y += 1, 1, "%s", genInfo.substr(0, epos).c_str());
+	mvwprintw(this->_w, y++, 1, "%s", genInfo.substr(0, epos).c_str());
 	spos = epos + 1;
 	epos = genInfo.find('\n', spos);
-	mvwprintw(this->_w, y += 1, 1, "%s", genInfo.substr(spos, epos).c_str());
+	mvwprintw(this->_w, y++, 1, "%s", genInfo.substr(spos, epos).c_str());
 	spos = epos + 1;
 	epos = genInfo.find('\n', spos);
-	mvwprintw(this->_w, y += 1, 1, "%s", genInfo.substr(spos, epos).c_str());
+	mvwprintw(this->_w, y++, 1, "%s", genInfo.substr(spos, epos).c_str());
 
 	this->refresh();
 }

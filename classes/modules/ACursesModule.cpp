@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:10 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 17:06:53 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 19:34:22 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void			ACursesModule::init( void )
 		initial_y += __size_y;
 		initial_x = 0;
 	}
+	mvwprintw(this->_w, 1, alignCenter(_motto), "%s", _motto.c_str());
+	box(_w, 0, 0);
 }
 void			ACursesModule::putInfo( void ) const
 {
@@ -65,17 +67,52 @@ void			ACursesModule::putInfo( void ) const
 
 void			ACursesModule::refresh( void ) const
 {
-	mvwprintw(this->_w, 1, (__size_x  - _motto.length()) / 2, "%s", _motto.c_str());
 	box(_w, 0, 0);
 	wrefresh(_w);
 }
-int				ACursesModule::alignCenter( const std::string &str ) const
+int				ACursesModule::alignCenter( const std::string &str, int borderThick ) const
 {
-	return (__size_x - str.length()) / 2;
+	const int		len = (__size_x - str.length()) / 2;
+
+	if ( len > borderThick ) {
+		return len;
+	}
+	else {
+		return borderThick;
+	}
 }
-int				ACursesModule::alignCenter( const int slen ) const
+int				ACursesModule::alignCenter( const int slen, int borderThick ) const
 {
-	return (__size_x - slen) / 2;
+	const int		len = (__size_x - slen) / 2;
+
+	if ( len > borderThick ) {
+		return len;
+	}
+	else {
+		return borderThick;
+	}
+}
+int				ACursesModule::alignRight( const std::string &str, int borderThick ) const
+{
+	const int		len = __size_x - str.length() - borderThick;
+
+	if ( len > borderThick ) {
+		return len;
+	}
+	else {
+		return borderThick;
+	}
+}
+int				ACursesModule::alignRight( const int slen, int borderThick ) const
+{
+	const int		len = __size_x - slen - borderThick;
+
+	if ( len > borderThick ) {
+		return len;
+	}
+	else {
+		return borderThick;
+	}
 }
 void			ACursesModule::decInitYX( void )
 {

@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:29 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 16:17:03 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 20:03:12 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 #define KEY_FIVE	'5'
 #define KEY_SIX		'6'
 #define KEY_SEVEN	'7'
-#define KEY_EIGH	'8'
+#define KEY_EIGHT	'8'
 #define KEY_NINE	'9'
 
 #define COL_ONE		'!'

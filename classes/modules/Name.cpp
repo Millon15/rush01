@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Name.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 19:51:51 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 22:06:48 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <Name.hpp>
 
 Name::Name( void )
@@ -31,8 +43,8 @@ void			Name::putInfo( void ) const
 	char					name[len];
 
 	gethostname(name, len);
-	mvwprintw(this->_w, _winStStr, 1, "Username: %s", getenv("USER"));
-	mvwprintw(this->_w, _winStStr + 2, 1, "Hostname: %s", name);
+	mvwprintw(this->_w, _winStStr + 2, 1, "Username: %s", getenv("USER"));
+	mvwprintw(this->_w, _winStStr + 4, 1, "Hostname: %s", name);
 
 	this->refresh();
 }

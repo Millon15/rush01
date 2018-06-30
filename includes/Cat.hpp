@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OS.hpp                                             :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/30 19:51:24 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 19:51:24 by vbrazas          ###   ########.fr       */
+/*   Created: 2018/06/30 19:50:48 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 21:02:15 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OS_HPP
-#define OS_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <ACursesModule.hpp>
 
-class OS : public ACursesModule {
+class Cat : public ACursesModule {
 
 public:
-	OS( void );
-	OS( std::string, int );
-	OS( const OS & );
-	~OS( void );
+	Cat( void );
+	Cat( std::string, int );
+	Cat( const Cat & );
+	~Cat( void );
 
-	OS			&operator=( const OS & );
+	Cat			&operator=( const Cat & );
 
 	void		putInfo( void ) const;
 
 private:
+	std::vector<std::string>		_kitty;
 
+	void				kittyInit( void );
 
 };
 
-#endif												// end of OS_HPP
+#endif												// end of CAT_HPP

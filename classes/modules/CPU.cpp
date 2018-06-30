@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   CPU.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 19:51:56 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 19:51:56 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <CPU.hpp>
 
 CPU::CPU( void )
@@ -28,6 +40,7 @@ CPU			&CPU::operator=( const CPU &toCopy )
 
 void		CPU::putInfo( void ) const
 {
+	int						y = _winStStr;
 	const std::string		proc = saveExec("sysctl -n machdep.cpu.brand_string");
 	const std::string		proc1 = proc.substr(0, proc.find("(TM) ") + 5);
 	const std::string		proc2 = proc.substr(proc.find("(TM) ") + 5);
@@ -37,12 +50,13 @@ void		CPU::putInfo( void ) const
 	const std::string		usage = saveExec("ps -o %cpu -A | awk '{s+=$1} END {print s}'");
 	const int				u = atoi(usage.c_str());
 
-	mvwprintw(this->_w, _winStStr + 1, (__size_x - proc1.length()) / 2, "%s", proc1.c_str());
-	mvwprintw(this->_w, _winStStr + 2, (__size_x - proc2.length()) / 2, "%s", proc2.c_str());
+	mvwprintw(this->_w, y++, (__size_x - proc1.length()) / 2, "%s", proc1.c_str());
+	mvwprintw(this->_w, y++, (__size_x - proc2.length()) / 2, "%s", proc2.c_str());
 
-	mvwprintw(this->_w, _winStStr + 4, 1, "Processor architecture: %s", architecture.c_str());
-	mvwprintw(this->_w, _winStStr + 5, 1, "Cores Number: %s", ncores.c_str());
-	mvwprintw(this->_w, _winStStr + 6, 1, "CPU usage: %d%%", u / n);
+	mvwprintw(this->_w, y++, 1, "Processor architecture: %s", architecture.c_str());
+	mvwprintw(this->_w, y++, 1, "Cores Number: %s", ncores.c_str());
+	clearLine(y);
+	mvwprintw(this->_w, y++, 1, "CPU usage: %d%%", u / n);
 
 	this->refresh();
 }

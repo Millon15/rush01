@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Time.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 19:51:38 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 22:08:27 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <Time.hpp>
 
 Time::Time( void )
@@ -30,7 +42,7 @@ void			Time::putInfo( void ) const
 {
 	const std::string	t = saveExec("date '+%d/%m/%Y %H:%M:%S'");
 
-	mvwprintw(this->_w, _winStStr + 2,alignCenter(t), "%s", t.c_str());
+	mvwprintw(this->_w, __size_y / 2 - 3, alignCenter(t), "%s", t.c_str());
 
 	this->refresh();
 }

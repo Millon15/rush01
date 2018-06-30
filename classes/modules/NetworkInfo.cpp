@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:11 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 15:40:36 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 22:06:45 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,24 @@ void				NetworkInfo::putInfo( void ) const
 {
 	int									y = _winStStr;
 	const std::string					interfaces = saveExec(\
-	"cat sysInfo | grep -A 29 'Network:' | grep '\\w:$' | awk '{gsub(\"Network:\", \"\", $1); printf \"%s %s \", $1, $2}'");
-	const std::string					types = saveExec("cat sysInfo | grep -A 29 'Network:' | grep 'Type: '");
-	const std::string					bsd = saveExec("cat sysInfo | grep -A 29 'Network:' | grep 'BSD' | awk '{print $4}'");
+	"cat other/sysinfo | grep -A 29 'Network:' | grep '\\w:$' | awk '{gsub(\"Network:\", \"\", $1); printf \"%s %s \", $1, $2}'");
+	const std::string					types = saveExec("cat other/sysinfo | grep -A 29 'Network:' | grep 'Type: '");
+	const std::string					bsd = saveExec("cat other/sysinfo | grep -A 29 'Network:' | grep 'BSD' | awk '{print $4}'");
 	const std::vector<std::string>		Ivec = explode(interfaces, ':');
 	const std::vector<std::string>		Tvec = explode(types, '\n');
 	const std::vector<std::string>		Bvec = explode(bsd, '\n');
-	const std::vector<int>::size_type	smallestSize = std::min( Ivec.size(), std::min(Tvec.size(), Bvec.size()) );
 
-	for (	std::vector<int>::size_type i = 0;
+
+	const std::vector<std::string>::size_type	smallestSize = std::min( Ivec.size(), std::min(Tvec.size(), Bvec.size()) );
+
+	for (	std::vector<std::string>::size_type i = 0;
 			i < smallestSize;
 			i++ )
 	{
 		mvwprintw(this->_w, y++, 1, "%d. %s:", i + 1, Ivec[i].c_str());
-		mvwprintw(this->_w, y++, 1, "%s", Bvec[i].c_str());
-		mvwprintw(this->_w, y++, 1, "    %s", Tvec[i].c_str());
+		mvwprintw(this->_w, y++, alignRight(Bvec[i]), "%s", Bvec[i].c_str());
+		mvwprintw(this->_w, y++, 1, "   %s", Tvec[i].c_str());
+		y++;
 	}
 
 	this->refresh();

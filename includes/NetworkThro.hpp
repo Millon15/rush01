@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 15:06:41 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 15:42:42 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 20:43:53 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ public:
 	NetworkThro( const NetworkThro & );
 	~NetworkThro( void );
 
-	NetworkThro			&operator=( const NetworkThro & );
+	NetworkThro		&operator=( const NetworkThro & );
 
-	virtual void			putInfo( void ) const;
+	void			putInfo( void ) const;
 
 private:
 
