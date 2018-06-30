@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ACursesModule.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:09:12 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 12:31:29 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ACURSESMODULE_HPP
 #define ACURSESMODULE_HPP
 
@@ -34,6 +46,7 @@ protected:
 	void				decInitYX( void );
 	int					alignCenter( const std::string & ) const;
 	int					alignCenter( const int ) const;
+
 	virtual void		init( void );
 
 };

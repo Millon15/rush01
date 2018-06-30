@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:08:33 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 12:08:37 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <CursesDisplay.hpp>
 #include <main.hpp>
@@ -28,7 +39,10 @@ int				main( void )
 		else if ( c == KEY_THREE )		d.switchTime();
 		else if ( c == KEY_FOUR )		d.switchCPU();
 		else if ( c == KEY_FIVE )		d.switchRAM();
-		else if ( c == KEY_SIX )		d.switchNetwork();
+		// else if ( c == KEY_SIX )		d.switchNetworkThro();
+		else if ( c == KEY_SEVEN )		d.switchNetworkInfo();
+		// else if ( c == KEY_EIGHT )		d.switchCat();
+		// else if ( c == KEY_NINE )		d.switchHardware();
 		else if ( c == COL_ONE )		d.switchCols(1);
 		else if ( c == COL_TWO )		d.switchCols(2);
 		else if ( c == COL_THREE )		d.switchCols(3);

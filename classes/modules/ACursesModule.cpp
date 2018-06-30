@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ACursesModule.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:09:10 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 12:31:24 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <ACursesModule.hpp>
 
 ACursesModule::ACursesModule( void ) :
@@ -71,6 +83,7 @@ void			ACursesModule::decInitYX( void )
 	*_initial_y = 0;
 	*_initial_x = 0;
 }
+
 
 														/* GETTERS */
 WINDOW			*ACursesModule::getWin( void ) const

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   CursesDisplay.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:08:26 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 12:25:12 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CURSESDISPLAY_HPP
 #define CURSESDISPLAY_HPP
 
@@ -6,8 +18,7 @@
 #include <Time.hpp>
 #include <CPU.hpp>
 #include <RAM.hpp>
-#include <Network.hpp>
-#include <vector>
+#include <NetworkInfo.hpp>
 #include <main.hpp>
 
 class CursesDisplay {
@@ -28,7 +39,10 @@ public:
 	void					switchTime( void );
 	void					switchCPU( void );
 	void					switchRAM( void );
-	void					switchNetwork( void );
+	// void					switchNetworkThro( void );
+	void					switchNetworkInfo( void );
+	// void					switchCat( void );
+	// void					switchHardware( void );
 	void					switchCols( int );
 
 private:
@@ -37,14 +51,20 @@ private:
 	ACursesModule		*TimeInfo;
 	ACursesModule		*CPUInfo;
 	ACursesModule		*RAMInfo;
-	ACursesModule		*NetworkInfo;
+	// ACursesModule		*NetworkTr;
+	ACursesModule		*NetworkInf;
+	// ACursesModule		*CatInst;
+	// ACursesModule		*HardW;
 
 	bool		isName;
 	bool		isOSinfo;
 	bool		isTime;
 	bool		isCPU;
 	bool		isRAM;
-	bool		isNetwork;
+	// bool		isNetworkThro;
+	bool		isNetworkInfo;
+	// bool		isCat;
+	// bool		isHardware;
 
 	std::vector<IMonitorModule*>		_modules;
 	int									_nbColums;

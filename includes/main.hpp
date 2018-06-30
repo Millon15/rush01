@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:08:29 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 13:26:16 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MAIN_HPP
 # define MAIN_HPP
 
@@ -5,6 +17,10 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include <vector>
+#include <sstream>
+#include <utility>
+#include <algorithm>
 #include <stdexcept>
 #include <stdio.h>
 #include <unistd.h>
@@ -21,13 +37,18 @@
 #define KEY_FOUR	'4'
 #define KEY_FIVE	'5'
 #define KEY_SIX		'6'
+#define KEY_SEVEN	'7'
+#define KEY_EIGH	'8'
+#define KEY_NINE	'9'
 
 #define COL_ONE		'!'
 #define COL_TWO		'@'
 #define COL_THREE	'#'
 #define COL_FOUR	'$'
 
-std::string		exec( const char *cmd );
-std::string		saveExec( const char *cmd );
+std::string					exec( const char * );
+std::string					saveExec( const char * );
+std::vector<std::string>	explode( const std::string &, const char );
+std::string					&trim( std::string & );
 
 #endif

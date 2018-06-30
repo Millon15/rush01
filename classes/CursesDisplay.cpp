@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   CursesDisplay.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/30 12:08:22 by vbrazas           #+#    #+#             */
+/*   Updated: 2018/06/30 13:31:43 by vbrazas          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <CursesDisplay.hpp>
 
 // #include <fstream>
@@ -10,7 +22,8 @@ CursesDisplay::CursesDisplay( void ) :
 	isTime(true),
 	isCPU(true),
 	isRAM(true),
-	isNetwork(true),
+	// isNetworkThro(true),
+	isNetworkInfo(true),
 	_modules(0),
 	_nbColums(2)
 {
@@ -27,7 +40,7 @@ CursesDisplay::~CursesDisplay( void )
 	this->deleteAll();
 	endwin();
 
-	system("reset; clear; echo '\t\t\t\t\t\tGOODBUY'");
+	system("reset; clear; echo '\t\t\t\t\t\tGOODBYE'");
 }
 
 CursesDisplay				&CursesDisplay::operator=( const CursesDisplay &toCopy )
@@ -84,10 +97,25 @@ void						CursesDisplay::allocAll( void )
 		_modules.push_back(RAMInfo);
 	}
 
-	if ( isNetwork ) {
-		NetworkInfo = new Network("6. Network info", _nbColums);
-		_modules.push_back(NetworkInfo);
+	// if ( isNetworkThro ) {
+	// 	NetworkInfo = new NetworkThro("6. Network throughput", _nbColums);
+	// 	_modules.push_back(NetworkInfo);
+	// }
+	
+	if ( isNetworkInfo ) {
+		NetworkInf = new NetworkInfo("7. Network interfaces", _nbColums);
+		_modules.push_back(NetworkInf);
 	}
+
+	// if ( isCat ) {
+	// 	NetworkInfo = new Cat("8. Zaz's cat", _nbColums);
+	// 	_modules.push_back(NetworkInfo);
+	// }
+
+	// if ( isHardware ) {
+	// 	NetworkInfo = new Hardware("9. Other hardware", _nbColums);
+	// 	_modules.push_back(NetworkInfo);
+	// }
 }
 void						CursesDisplay::reAllocAll( void )
 {
@@ -135,9 +163,9 @@ void						CursesDisplay::switchRAM( void )
 	isRAM = !isRAM;
 	this->reAllocAll();
 }
-void						CursesDisplay::switchNetwork( void )
+void						CursesDisplay::switchNetworkInfo( void )
 {
-	isNetwork = !isNetwork;
+	isNetworkInfo = !isNetworkInfo;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchCols( int nbColums )
