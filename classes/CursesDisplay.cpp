@@ -10,7 +10,7 @@ CursesDisplay::CursesDisplay( void ) :
 	isTime(true),
 	isCPU(true),
 	isRAM(true),
-	// isNetwork(true),
+	isNetwork(true),
 	_modules(0),
 	_nbColums(2)
 {
@@ -84,10 +84,10 @@ void						CursesDisplay::allocAll( void )
 		_modules.push_back(RAMInfo);
 	}
 
-	// if ( isNetwork ) {
-	// 	NetworkInfo = new Network("6. Network info", _nbColums);
-	// 	_modules.push_back(NetworkInfo);
-	// }
+	if ( isNetwork ) {
+		NetworkInfo = new Network("6. Network info", _nbColums);
+		_modules.push_back(NetworkInfo);
+	}
 }
 void						CursesDisplay::reAllocAll( void )
 {
@@ -135,11 +135,11 @@ void						CursesDisplay::switchRAM( void )
 	isRAM = !isRAM;
 	this->reAllocAll();
 }
-// void						CursesDisplay::switchNetwork( void )
-// {
-// 	isNetwork = !isNetwork;
-// 	this->reAllocAll();
-// }
+void						CursesDisplay::switchNetwork( void )
+{
+	isNetwork = !isNetwork;
+	this->reAllocAll();
+}
 void						CursesDisplay::switchCols( int nbColums )
 {
 	_nbColums = nbColums;

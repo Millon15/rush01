@@ -24,3 +24,14 @@ Network			&Network::operator=( const Network &toCopy )
 
 	return *this;
 }
+
+
+void			Network::putInfo( void ) const
+{
+	const std::string	c1 = saveExec(\
+	"cat sysInfo | grep -A 29 'Network:' | grep '\\w:$' | awk '{gsub(\":\", \"\", $1); gsub(\":\", \"\", $2); printf \"%s%s \", $1, $2}'");
+
+	mvwprintw(this->_w, _winStStr, 1, "%s", c1.c_str());
+
+	this->refresh();
+}

@@ -13,6 +13,8 @@ public:
 
 	Network			&operator=( const Network & );
 
+	void			putInfo( void ) const;
+
 private:
 
 

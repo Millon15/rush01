@@ -28,7 +28,7 @@ public:
 	void					switchTime( void );
 	void					switchCPU( void );
 	void					switchRAM( void );
-	// void					switchNetwork( void );
+	void					switchNetwork( void );
 	void					switchCols( int );
 
 private:
@@ -37,14 +37,14 @@ private:
 	ACursesModule		*TimeInfo;
 	ACursesModule		*CPUInfo;
 	ACursesModule		*RAMInfo;
-	// ACursesModule		*NetworkInfo;
+	ACursesModule		*NetworkInfo;
 
 	bool		isName;
 	bool		isOSinfo;
 	bool		isTime;
 	bool		isCPU;
 	bool		isRAM;
-	// bool		isNetwork;
+	bool		isNetwork;
 
 	std::vector<IMonitorModule*>		_modules;
 	int									_nbColums;

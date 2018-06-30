@@ -3,6 +3,7 @@
 _*
 obj/
 log*
+sysinfo
 ft_gkrellm
 
 # Prerequisites
