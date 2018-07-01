@@ -82,7 +82,7 @@ void						CursesDisplay::deleteAll( void )
 void						CursesDisplay::allocAll( void )
 {
 	if ( _isName )			_modules.push_back(new Name("1. User info", _nbColums));
-	if ( _isOSinfo )			_modules.push_back(new OS("2. OS info", _nbColums));
+	if ( _isOSinfo )		_modules.push_back(new OS("2. OS info", _nbColums));
 	if ( _isTime )			_modules.push_back(new Time("3. Time", _nbColums));
 	if ( _isCPU )			_modules.push_back(new CPU("4. CPU info", _nbColums));
 	if ( _isRAM )			_modules.push_back(new RAM("5. RAM info", _nbColums));

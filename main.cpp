@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <CursesDisplay.hpp>
+#include <GUIDisplay.hpp>
+
 
 static void		putError( const char *err )
 {
@@ -27,7 +29,7 @@ static void			displayCurses( void )
 
 static void			displayGTK( void )
 {
-	return ;
+	GUIDisplay		g;
 }
 
 int				main( int ac, char **av )
@@ -55,7 +57,8 @@ int				main( int ac, char **av )
 		else								putError("ERROR: wrong second argument");
 	}
 	else { // Default behaviour
-		displayCurses();
+		displayGTK();
+		// displayCurses();
 	}
 
 	return 0;
