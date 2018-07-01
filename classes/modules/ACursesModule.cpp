@@ -6,21 +6,19 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:10 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 14:16:35 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:49:18 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ACursesModule.hpp>
 
 ACursesModule::ACursesModule( void ) :
-	_borderThick(1),
 	_motto(""),
 	_nbColums(2)
 {
 	init();
 }
 ACursesModule::ACursesModule( std::string &str, int nbColums ) :
-	_borderThick(1),
 	_motto(str),
 	_nbColums(nbColums)
 {
@@ -39,7 +37,11 @@ ACursesModule::~ACursesModule( void )
 }
 ACursesModule				&ACursesModule::operator=( const ACursesModule &toCopy )
 {
-	static_cast<void>(toCopy);
+	_w = toCopy._w;
+	_motto = toCopy._motto;
+	_nbColums = toCopy._nbColums;
+	_initial_y = toCopy._initial_y;
+	_initial_x = toCopy._initial_x;
 
 	return *this;
 }

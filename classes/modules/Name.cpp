@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 19:51:51 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:06:48 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:41:23 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Name::~Name( void )
 Name			&Name::operator=( const Name &toCopy )
 {
 	ACursesModule::operator=(toCopy);
-	static_cast<void>(toCopy);
 
 	return *this;
 }

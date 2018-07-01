@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 19:52:00 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 14:04:28 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:41:15 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Cat::~Cat( void )
 }
 Cat			&Cat::operator=( const Cat &toCopy )
 {
-	static_cast<void>(toCopy);
+	ACursesModule::operator=(toCopy);
+	_kitty = toCopy._kitty;
 
 	return *this;
 }
@@ -77,13 +78,13 @@ void		Cat::putInfo( void ) const
 			i++ )
 	{
 		if ( !(i % 2) )		wattron( _w, COLOR_PAIR(CAT1) );
-		if ( (i % 2) )		wattron( _w, COLOR_PAIR(CAT2) );
+		else				wattron( _w, COLOR_PAIR(CAT2) );
 	
 		clearLine(y);
 		mvwprintw(this->_w, y++, 1, "%s", _kitty[i].c_str());
 
 		if ( !(i % 2) )		wattroff( _w, COLOR_PAIR(CAT1) );
-		if ( (i % 2) )		wattroff( _w, COLOR_PAIR(CAT2) );
+		else				wattroff( _w, COLOR_PAIR(CAT2) );
 	}
 
 	if ( end != _kitty.size() ) {

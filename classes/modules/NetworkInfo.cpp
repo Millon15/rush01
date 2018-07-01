@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:11 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:06:45 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:41:26 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ NetworkInfo::~NetworkInfo( void )
 NetworkInfo			&NetworkInfo::operator=( const NetworkInfo &toCopy )
 {
 	ACursesModule::operator=(toCopy);
-	static_cast<void>(toCopy);
 
 	return *this;
 }

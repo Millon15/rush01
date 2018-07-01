@@ -6,25 +6,21 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:22 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 14:07:22 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:46:15 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <CursesDisplay.hpp>
 
-// #include <fstream>
-// std::ofstream	o("log");
-// o << _modules[i] << std::endl;
-
 CursesDisplay::CursesDisplay( void ) : 
-	isName(true),
-	isOSinfo(true),
-	isTime(true),
-	isCPU(true),
-	isRAM(true),
-	isNetworkThro(true),
-	isNetworkInfo(true),
-	isCat(true),
+	_isName(true),
+	_isOSinfo(true),
+	_isTime(true),
+	_isCPU(true),
+	_isRAM(true),
+	_isNetworkThro(true),
+	_isNetworkInfo(true),
+	_isCat(true),
 	_modules(0),
 	_nbColums(2)
 {
@@ -43,7 +39,16 @@ CursesDisplay::~CursesDisplay( void )
 }
 CursesDisplay				&CursesDisplay::operator=( const CursesDisplay &toCopy )
 {
-	static_cast<void>(toCopy);
+	_isName = toCopy._isName;
+	_isOSinfo = toCopy._isOSinfo;
+	_isTime = toCopy._isTime;
+	_isCPU = toCopy._isCPU;
+	_isRAM = toCopy._isRAM;
+	_isNetworkThro = toCopy._isNetworkThro;
+	_isNetworkInfo = toCopy._isNetworkInfo;
+	_isCat = toCopy._isCat;
+	_modules = toCopy._modules;
+	_nbColums = toCopy._nbColums;
 
 	return *this;
 }
@@ -76,14 +81,14 @@ void						CursesDisplay::deleteAll( void )
 }
 void						CursesDisplay::allocAll( void )
 {
-	if ( isName )			_modules.push_back(new Name("1. User info", _nbColums));
-	if ( isOSinfo )			_modules.push_back(new OS("2. OS info", _nbColums));
-	if ( isTime )			_modules.push_back(new Time("3. Time", _nbColums));
-	if ( isCPU )			_modules.push_back(new CPU("4. CPU info", _nbColums));
-	if ( isRAM )			_modules.push_back(new RAM("5. RAM info", _nbColums));
-	if ( isNetworkThro )	_modules.push_back(new NetworkThro("6. Network throughput", _nbColums));
-	if ( isNetworkInfo )	_modules.push_back(new NetworkInfo("7. Network interfaces", _nbColums));
-	if ( isCat )			_modules.push_back(new Cat("8. Matroskin", _nbColums));
+	if ( _isName )			_modules.push_back(new Name("1. User info", _nbColums));
+	if ( _isOSinfo )			_modules.push_back(new OS("2. OS info", _nbColums));
+	if ( _isTime )			_modules.push_back(new Time("3. Time", _nbColums));
+	if ( _isCPU )			_modules.push_back(new CPU("4. CPU info", _nbColums));
+	if ( _isRAM )			_modules.push_back(new RAM("5. RAM info", _nbColums));
+	if ( _isNetworkThro )	_modules.push_back(new NetworkThro("6. Network throughput", _nbColums));
+	if ( _isNetworkInfo )	_modules.push_back(new NetworkInfo("7. Network interfaces", _nbColums));
+	if ( _isCat )			_modules.push_back(new Cat("8. Matroskin", _nbColums));
 }
 void						CursesDisplay::reAllocAll( void )
 {
@@ -120,16 +125,22 @@ void						CursesDisplay::run( void )
 		else if ( c == KEY_SIX )		this->switchNetworkThro();
 		else if ( c == KEY_SEVEN )		this->switchNetworkInfo();
 		else if ( c == KEY_EIGHT )		this->switchCat();
+
 		else if ( c == COL_ONE )		this->switchCols(1);
 		else if ( c == COL_TWO )		this->switchCols(2);
 		else if ( c == COL_THREE )		this->switchCols(3);
 		else if ( c == COL_FOUR )		this->switchCols(4);
 		else if ( c == COL_FIVE )		this->switchCols(5);
 		else if ( c == COL_SIX )		this->switchCols(6);
+		else if ( c == COL_SEVEN )		this->switchCols(7);
+		else if ( c == COL_EIGHT )		this->switchCols(8);
+		else if ( c == COL_NINE )		this->switchCols(9);
+		else if ( c == COL_TEN )		this->switchCols(10);
+
 		else if ( c == EXIT_KEY1 || c == EXIT_KEY2 || c == EXIT_KEY3 )
 			break ;
 
-		if ( t != time(NULL) ) {
+		if ( t != time(NULL) ) { // Refreshing happens one time per 1 second
 			this->refresh();
 			t = time(NULL);
 		}
@@ -140,44 +151,45 @@ void						CursesDisplay::run( void )
 																	/* Module switchers */
 void						CursesDisplay::switchName( void )
 {
-	isName = !isName;
+	_isName = !_isName;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchOSinfo( void )
 {
-	isOSinfo = !isOSinfo;
+	_isOSinfo = !_isOSinfo;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchTime( void )
 {
-	isTime = !isTime;
+	_isTime = !_isTime;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchCPU( void )
 {
-	isCPU = !isCPU;
+	_isCPU = !_isCPU;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchRAM( void )
 {
-	isRAM = !isRAM;
+	_isRAM = !_isRAM;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchNetworkThro( void )
 {
-	isNetworkThro = !isNetworkThro;
+	_isNetworkThro = !_isNetworkThro;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchNetworkInfo( void )
 {
-	isNetworkInfo = !isNetworkInfo;
+	_isNetworkInfo = !_isNetworkInfo;
 	this->reAllocAll();
 }
 void						CursesDisplay::switchCat( void )
 {
-	isCat = !isCat;
+	_isCat = !_isCat;
 	this->reAllocAll();
 }
+
 void						CursesDisplay::switchCols( int nbColums )
 {
 	_nbColums = nbColums;

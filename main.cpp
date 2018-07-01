@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:33 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:12:02 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 15:52:47 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int				main( int ac, char **av )
 		else if ( !strcmp("-c", av[1]) )	displayCurses();
 		else								putError("ERROR: wrong second argument");
 	}
-	else {
+	else { // Default behaviour
 		displayCurses();
 	}
 

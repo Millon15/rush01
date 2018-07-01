@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:29 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 14:07:31 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 14:32:39 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 #define KEY_SEVEN	'7'
 #define KEY_EIGHT	'8'
 #define KEY_NINE	'9'
+#define KEY_TEN		'0'
 
 // Colls view
 #define COL_ONE		'!'
@@ -51,6 +52,10 @@
 #define COL_FOUR	'$'
 #define COL_FIVE	'%'
 #define COL_SIX		'^'
+#define COL_SEVEN	'&'
+#define COL_EIGHT	'*'
+#define COL_NINE	'('
+#define COL_TEN		')'
 
 // Collor pairs
 #define CAT1		1

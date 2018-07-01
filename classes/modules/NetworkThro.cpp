@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 15:06:46 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 13:25:24 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:41:32 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ NetworkThro::~NetworkThro( void )
 NetworkThro			&NetworkThro::operator=( const NetworkThro &toCopy )
 {
 	ACursesModule::operator=(toCopy);
-	static_cast<void>(toCopy);
 
 	return *this;
 }

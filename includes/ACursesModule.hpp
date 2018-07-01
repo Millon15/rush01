@@ -6,16 +6,14 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:12 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/07/01 13:35:13 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:50:25 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ACURSESMODULE_HPP
 #define ACURSESMODULE_HPP
 
-
 #include <IMonitorModule.hpp>
-#include <main.hpp>
 
 class ACursesModule : public IMonitorModule {
 
@@ -31,15 +29,15 @@ public:
 	virtual void			putInfo( void ) const;
 
 	/* GETTERS */
-	WINDOW					*getWin( void ) const;
+	virtual WINDOW			*getWin( void ) const;
 
 protected:
 	WINDOW				*_w;
-	int					_borderThick;
 	std::string			_motto;
 	int					_nbColums;
 	int					*_initial_y;
 	int					*_initial_x;
+	static const int	_borderThick = 1;
 	static const int	_winStStr = 3;
 	static const int	__size_y = 20;
 	static const int	__size_x = 30;

@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:02 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 21:47:59 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 17:41:36 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ RAM::~RAM( void )
 RAM			&RAM::operator=( const RAM &toCopy )
 {
 	ACursesModule::operator=(toCopy);
-	static_cast<void>(toCopy);
 
 	return *this;
 }
