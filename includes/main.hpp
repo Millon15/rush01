@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:29 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 20:03:12 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 14:07:31 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@
 #include <unistd.h>
 #include <time.h>
 
+// For exec() function
 #define BUFF_SIZE 1024
 
 #define EXIT_KEY1	27		// escape button
 #define EXIT_KEY2	'q'
 #define EXIT_KEY3	'Q'
 
+// Rearenge modules
 #define KEY_ONE		'1'
 #define KEY_TWO		'2'
 #define KEY_THREE	'3'
@@ -42,12 +44,19 @@
 #define KEY_EIGHT	'8'
 #define KEY_NINE	'9'
 
+// Colls view
 #define COL_ONE		'!'
 #define COL_TWO		'@'
 #define COL_THREE	'#'
 #define COL_FOUR	'$'
 #define COL_FIVE	'%'
 #define COL_SIX		'^'
+
+// Collor pairs
+#define CAT1		1
+#define CAT2		2
+#define HEADING		3
+
 
 std::string					exec( const char * );
 std::string					saveExec( const char * );

@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 15:06:46 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 16:55:15 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 13:25:24 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void				NetworkThro::putInfo( void ) const
 	mvwprintw(this->_w, y++, 1, "Input packages: %ld MB", Ipac / 1024);
 	mvwprintw(this->_w, y++, 1, "Output packages: %ld MB", Opac / 1024);
 	clearLine(y);
-	mvwprintw(this->_w, y++, 1, "Ipack/sec : %ld B", (Ipac - pastIpac));
+	mvwprintw(this->_w, y++, 1, "Ipack/sec: %ld B", (Ipac - pastIpac));
 	clearLine(y);
 	mvwprintw(this->_w, y++, 1, "Opack/sec: %ld B", (Opac - pastOpac));
 
 	mvwprintw(this->_w, y++, 1, "Total input: %ld MB", Ibyt / 1024 / 1024);
 	mvwprintw(this->_w, y++, 1, "Total output: %ld MB", Obyt / 1024 / 1024);
 	clearLine(y);
-	mvwprintw(this->_w, y++, 1, "Itotal/sec : %ld B", (Ibyt - pastIbyt));
+	mvwprintw(this->_w, y++, 1, "Itotal/sec: %ld B", (Ibyt - pastIbyt));
 	clearLine(y);
 	mvwprintw(this->_w, y++, 1, "Ototal/sec: %ld B", (Obyt - pastObyt));
 

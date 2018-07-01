@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:33 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 21:46:05 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/06/30 22:12:02 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				main( int ac, char **av )
 	pid_t			pid = fork();
 
 	if ( pid == 0 ) { // child process
-		system("kdir -p other");
+		system("mkdir -p other");
 		system("system_profiler -detailLevel mini > other/sysinfo");
 		return 0;
 	}

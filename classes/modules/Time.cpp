@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 19:51:38 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:08:27 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 13:07:52 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			Time::putInfo( void ) const
 {
 	const std::string	t = saveExec("date '+%d/%m/%Y %H:%M:%S'");
 
-	mvwprintw(this->_w, __size_y / 2 - 3, alignCenter(t), "%s", t.c_str());
+	mvwprintw(this->_w, _winStStr + 4, alignCenter(t), "%s", t.c_str());
 
 	this->refresh();
 }

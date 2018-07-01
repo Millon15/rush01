@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:22 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:01:27 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 14:07:22 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ void						CursesDisplay::init( void )
 	clear();
 	noecho();
 	cbreak();
+
+	start_color();
+	init_pair(CAT1, COLOR_CYAN, COLOR_BLACK);
+	init_pair(CAT2, COLOR_WHITE, COLOR_BLACK);
+	init_pair(HEADING, COLOR_YELLOW, COLOR_BLACK);
+
 	this->allocAll();
 }
 void						CursesDisplay::deleteAll( void )
@@ -77,7 +83,7 @@ void						CursesDisplay::allocAll( void )
 	if ( isRAM )			_modules.push_back(new RAM("5. RAM info", _nbColums));
 	if ( isNetworkThro )	_modules.push_back(new NetworkThro("6. Network throughput", _nbColums));
 	if ( isNetworkInfo )	_modules.push_back(new NetworkInfo("7. Network interfaces", _nbColums));
-	if ( isCat )			_modules.push_back(new Cat("8. Hello Kitty", _nbColums));
+	if ( isCat )			_modules.push_back(new Cat("8. Matroskin", _nbColums));
 }
 void						CursesDisplay::reAllocAll( void )
 {

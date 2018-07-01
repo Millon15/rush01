@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:09:12 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 19:34:05 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 13:35:13 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 
 protected:
 	WINDOW				*_w;
+	int					_borderThick;
 	std::string			_motto;
 	int					_nbColums;
 	int					*_initial_y;
@@ -46,13 +47,13 @@ protected:
 	virtual void		init( void );
 	void				decInitYX( void );
 
-	int					alignCenter( const std::string &, int = 1 ) const;
-	int					alignCenter( const int, int = 1 ) const;
-	int					alignRight( const std::string &str, int = 1 ) const;
-	int					alignRight( const int slen, int = 1 ) const;
+	int					alignCenter( const std::string & ) const;
+	int					alignCenter( const int ) const;
+	int					alignRight( const std::string &str ) const;
+	int					alignRight( const int slen ) const;
 
-	void				clearLine( int, int = 1 ) const;
-	void				clearWindow( int = 1 ) const;
+	void				clearLine( int ) const;
+	void				clearWindow( void ) const;
 
 };
 

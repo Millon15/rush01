@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 12:08:26 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/06/30 22:02:02 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/07/01 13:35:37 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <NetworkThro.hpp>
 #include <Cat.hpp>
 #include <main.hpp>
+
 
 class CursesDisplay {
 
