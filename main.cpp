@@ -57,8 +57,7 @@ int				main( int ac, char **av )
 		else								putError("ERROR: wrong second argument");
 	}
 	else { // Default behaviour
-		displayGTK();
-		// displayCurses();
+		displayCurses();
 	}
 
 	return 0;

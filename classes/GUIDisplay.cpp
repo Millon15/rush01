@@ -42,7 +42,7 @@ GtkWidget*				GUIDisplay::GenerateWidget(std::string title, int counter)
   	gtk_container_set_border_width (GTK_CONTAINER(widget), 10);
 	gtk_widget_set_usize(widget, 300, 300);
 
-	gtk_container_add(GTK_CONTAINER(widget), gtk_label_new("test"));
+	// gtk_container_add(GTK_CONTAINER(widget), gtk_label_new("test"));
 	gtk_widget_set_uposition(widget, 300 * counter, 0);
 
 	return (widget);
@@ -50,47 +50,48 @@ GtkWidget*				GUIDisplay::GenerateWidget(std::string title, int counter)
 /* ************************************************************************** */
 void					GUIDisplay::init( void )
 {
-  	GtkWidget *window;
-
 	gtk_init(NULL, NULL);
 	this->allocAll();
-  	g_signal_connect(G_OBJECT(_window1), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+  	// g_signal_connect(G_OBJECT(_window1), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+	for (	std::vector<int>::size_type i = 0;
+			i < _modules.size();
+			i++ )
+	{
+		_modules[i]->putInfo();
+	}
 	showAll();
 	gtk_main();
 }
 /* ************************************************************************** */
 void	GUIDisplay::allocAll( void )
 {
-	_window1 = GenerateWidget("1. User info", 0);
-	_window2 = GenerateWidget("2. OS info", 1);
-	_window3 = GenerateWidget("3. Time", 2);
-	_window4 = GenerateWidget("4. CPU info", 3);
-	_window5 = GenerateWidget("5. RAM info", 4);
-	_window6 = GenerateWidget("6. Network throughput", 5);
-	_window7 = GenerateWidget("7. Network interfaces", 6);
-	_window8 = GenerateWidget("8. Matroskin", 7);
+	int			i = 0;
+	// _modules.push_back(new Name( GenerateWidget("1. User info", 0) );
+	// _modules.push_back(new OS( GenerateWidget("2. OS info", 1) );
+	// _modules.push_back(new Time( GenerateWidget("3. Time", 2) );
+	_modules.push_back(new CPU( GenerateWidget("4. CPU info", i++) ));
+	// _modules.push_back(new RAM( GenerateWidget("5. RAM info", 4) );
+	// _modules.push_back(new NetworkThro( GenerateWidget("6. Network throughput", 5) );
+	// _modules.push_back(new NetworkInfo( GenerateWidget("7. Network interfaces", 6) );
+	// _modules.push_back(new Cat( GenerateWidget("8. Matroskin", 7) );
 }
 /* ************************************************************************** */
 void	GUIDisplay::deleteAll( void )
 {
-	gtk_widget_destroy(_window1);
-	gtk_widget_destroy(_window2);
-	gtk_widget_destroy(_window3);
-	gtk_widget_destroy(_window4);
-	gtk_widget_destroy(_window5);
-	gtk_widget_destroy(_window6);
-	gtk_widget_destroy(_window7);
-	gtk_widget_destroy(_window8);
+	for (	std::vector<AGUIModule*>::size_type i = 0;
+			i < _modules.size();
+			i++ )
+	{
+		gtk_widget_destroy(_modules[i]->getWin());
+	}
 }
 /* ************************************************************************** */
 void	GUIDisplay::showAll( void )
 {
-	gtk_widget_show_all(_window1);
-	gtk_widget_show_all(_window2);
-	gtk_widget_show_all(_window3);
-	gtk_widget_show_all(_window4);
-	gtk_widget_show_all(_window5);
-	gtk_widget_show_all(_window6);
-	gtk_widget_show_all(_window7);
-	gtk_widget_show_all(_window8);
+	for (	std::vector<AGUIModule*>::size_type i = 0;
+			i < _modules.size();
+			i++ )
+	{
+		gtk_widget_show_all(_modules[i]->getWin());
+	}
 }

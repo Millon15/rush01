@@ -17,14 +17,14 @@ MODULES_PATH = modules/
 INC_PATH = includes/
 OBJ_PATH = obj/
 
-C = clang++ -g
-WFLAGS = #-Wall -Werror -Wextra -std=c++98 -pedantic -pedantic-errors 
+C = clang++
+WFLAGS = -Wall -Werror -Wextra -Wno-error=unused-command-line-argument
 IFLAGS = -I $(INC_PATH)
 LFLAGS = -lncurses
 GFLAGS = `pkg-config --cflags --libs gtk+-2.0`
 
 CLASSES = CursesDisplay GUIDisplay
-MODULES = ACursesModule Name OS Time CPU RAM NetworkThro NetworkInfo Cat
+MODULES = ACursesModule AGUIModule Name OS Time CPU RAM NetworkThro NetworkInfo Cat
 FILES = main utils
 
 SRCS = $(addprefix $(SRC_PATH), $(addsuffix .cpp, $(CLASSES)))

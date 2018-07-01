@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
+#include <gtk/gtk.h>
 
 // For exec() function
 #define BUFF_SIZE 1024

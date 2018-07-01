@@ -20,14 +20,9 @@ class IMonitorModule {
 public:
 	virtual ~IMonitorModule( void ) { return ; };
 
-	virtual void			refresh( void ) const = 0;
 	virtual void			putInfo( void ) const = 0;
 
-	/* GETTERS */
-	virtual WINDOW			*getWin( void ) const = 0;
-
 protected:
-	virtual void			init( void ) = 0;
 
 };
 

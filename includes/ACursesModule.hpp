@@ -15,7 +15,7 @@
 
 #include <IMonitorModule.hpp>
 
-class ACursesModule : public IMonitorModule {
+class ACursesModule : public virtual IMonitorModule {
 
 public:
 	ACursesModule( void );
@@ -25,11 +25,11 @@ public:
 
 	ACursesModule			&operator=( const ACursesModule & );
 
-	virtual void			refresh( void ) const;
+	void					refresh( void ) const;
 	virtual void			putInfo( void ) const;
 
 	/* GETTERS */
-	virtual WINDOW			*getWin( void ) const;
+	WINDOW					*getWin( void ) const;
 
 protected:
 	WINDOW				*_w;
@@ -42,7 +42,7 @@ protected:
 	static const int	__size_y = 20;
 	static const int	__size_x = 30;
 
-	virtual void		init( void );
+	void				init( void );
 	void				decInitYX( void );
 
 	int					alignCenter( const std::string & ) const;

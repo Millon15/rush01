@@ -14,21 +14,23 @@
 #define CPU_HPP
 
 #include <ACursesModule.hpp>
+#include <AGUIModule.hpp>
 
-class CPU : public ACursesModule {
+class CPU : public ACursesModule, public AGUIModule {
 
 public:
-	CPU( void );
+	CPU( GtkWidget *window );
 	CPU( std::string, int );
 	CPU( const CPU & );
 	~CPU( void );
 
-	CPU			&operator=( const CPU & );
+	CPU				&operator=( const CPU & );
 
-	void		putInfo( void ) const;
+	virtual void	putInfo( void ) const;
 
 private:
-
+	bool						_isHUI;
+	std::vector<GtkWidget*>		_lables;
 
 };
 

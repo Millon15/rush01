@@ -34,22 +34,13 @@ public:
 	void				WDialog (GtkButton *button, gpointer data);
 
 private:
+	std::vector<AGUIModule*>		_modules;
+
 	void				allocAll( void );
 	void				deleteAll( void );
 	void				showAll( void );
 	GtkWidget*			GenerateWidget(std::string title, int counter);
 	void				init( void );
-
-
-	GtkWidget			*_window0;
-	GtkWidget			*_window1;
-	GtkWidget			*_window2;
-	GtkWidget			*_window3;
-	GtkWidget			*_window4;
-	GtkWidget			*_window5;
-	GtkWidget			*_window6;
-	GtkWidget			*_window7;
-	GtkWidget			*_window8;
 
 };
 
